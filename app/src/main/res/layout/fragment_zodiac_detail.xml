@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/zodiac_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zodiac Name" />
+
+    <TextView
+        android:id="@+id/zodiac_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zodiac Description" />
+
+    <TextView
+        android:id="@+id/zodiac_symbol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zodiac Symbol" />
+
+    <TextView
+        android:id="@+id/zodiac_month"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zodiac Month" />
+</LinearLayout>

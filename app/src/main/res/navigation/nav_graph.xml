@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/zodiacListFragment">
+
+    <fragment
+        android:id="@+id/zodiacListFragment"
+        android:name="com.example.manorroom.ZodiacListFragment"
+        android:label="ZodiacListFragment"
+        tools:layout="@layout/fragment_zodiac_list" >
+        <action
+            android:id="@+id/show_zodiac_detail"
+            app:destination="@id/zodiacDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/zodiacDetailFragment"
+        android:name="com.example.manorroom.ZodiacDetailFragment"
+        android:label="ZodiacDetailFragment"
+        tools:layout="@layout/fragment_zodiac_detail" >
+        <argument
+            android:name="zodiacId"
+            app:argType="integer" />
+    </fragment>
+</navigation>
