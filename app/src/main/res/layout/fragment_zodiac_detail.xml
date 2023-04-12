@@ -30,4 +30,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Zodiac Month" />
+
+    <TextView
+        android:id="@+id/zodiac_api"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zodiac Month" />
 </LinearLayout>

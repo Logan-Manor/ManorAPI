@@ -11,9 +11,15 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.navArgs
+import com.example.manorroom.api.FlickrApi
 import com.example.manorroom.databinding.FragmentZodiacDetailBinding
 import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import retrofit2.create
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.*
+
+private const val TAG = "ZodiacDetailFragment"
 
 class ZodiacDetailFragment : Fragment() {
     private var _binding: FragmentZodiacDetailBinding? = null
@@ -42,7 +48,16 @@ class ZodiacDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("https://zodiac-api-test.onrender.com/horoscopes/")
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .build()
+
+        val flickrApi: FlickrApi = retrofit.create<FlickrApi>()
+
         viewLifecycleOwner.lifecycleScope.launch {
+            val response = flickrApi.fetchContents()
+            Log.d(TAG, "Response received: $response")
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 zodiacDetailViewModel.zodiac.collect { zodiac ->
                     zodiac?.let { updateUi(it) }
